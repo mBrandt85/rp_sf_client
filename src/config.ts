@@ -1,4 +1,5 @@
-export const uri = 'https://volvocars--cspdev.sandbox.my.site.com/services/oauth2/token'
+//export const uri = 'https://volvocars--cspdev.sandbox.my.site.com/services/oauth2/token'
+export const uri = 'https://login.salesforce.com/services/oauth2/token'
 
 export const config = {
   client_id: '3MVG904d7VkkD2aNZc_uaegI_igPMOKIVx.gVBOBeCoUSNDz23QBExCUD2OxODw5tgXAFOHc4aQ==',
