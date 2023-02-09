@@ -39,7 +39,7 @@ export default function SignIn() {
         body: formBody.join('&')
       })
 
-      const data = JSON.parse(await response.json())
+      const data = await response.json()
 
       if (data.error) throw data.error
 
