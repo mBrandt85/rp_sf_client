@@ -3,7 +3,7 @@ import { useState } from "react"
 import Input from "./input"
 import Title from "./title"
 import { useAuth } from "../providers"
-import { AuthError, User } from "../providers/auth"
+import { AuthError } from "../providers/auth"
 import Button from "./button"
 import { config, uri } from "../config"
 
@@ -49,6 +49,7 @@ export default function SignIn() {
       //setUser()
       setStatus('done')
     } catch (error) { 
+      console.log(error)
       setError(error as AuthError)
       setStatus('error')
     }
@@ -64,14 +65,14 @@ export default function SignIn() {
       <form onSubmit={handleSubmit}>
         <Input
           label="Username (valid email required)"
-          onChange={e => setUsername(e.target.value)}
+          onChange={e => setUsername(e.target.value.trim())}
           value={username}
         />
 
         <Input
-          label="Password"
-          type="password (required)"
-          onChange={e => setPassword(e.target.value)}
+          label="Password (required)"
+          type="password"
+          onChange={e => setPassword(e.target.value.trim())}
           value={password}
         />
 
