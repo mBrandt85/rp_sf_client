@@ -6,7 +6,7 @@ export default function Error() {
   const { error, clearAuth } = useAuth()
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center', padding: 16 }}>
       <Title>ERROR!</Title>
       <div style={{ marginBottom: 8 }}>{error}</div>
       <Button onClick={clearAuth}>Try again</Button>

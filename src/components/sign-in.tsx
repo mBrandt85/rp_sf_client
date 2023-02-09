@@ -48,8 +48,7 @@ export default function SignIn() {
       //setUser()
       setStatus('done')
     } catch (error) { 
-      console.log(error)
-      //setError(error as string)
+      if ((error as Error).message) setError((error as Error).message)
       setStatus('error')
     }
   }
