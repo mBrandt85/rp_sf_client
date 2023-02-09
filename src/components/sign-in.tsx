@@ -64,6 +64,15 @@ export default function SignIn() {
         <Input
           label="Username (valid email required)"
           onChange={e => setUsername(e.target.value.trim())}
+          style={{
+            outline: 'none',
+            borderStyle: 'solid',
+            borderColor: username.length === 0 
+              ? 'black' 
+              : !/^\S+@\S+$/.test(username) 
+                ? 'red' 
+                : 'green'
+          }}
           value={username}
         />
 
@@ -71,6 +80,13 @@ export default function SignIn() {
           label="Password (required)"
           type="password"
           onChange={e => setPassword(e.target.value.trim())}
+          style={{
+            outline: 'none',
+            borderStyle: 'solid',
+            borderColor: password.length < 1 
+              ? 'black' 
+              : 'green'
+          }}
           value={password}
         />
 
