@@ -40,7 +40,7 @@ export default function SignIn() {
 
       const data = await response.json()
 
-      if (data.error) throw new Error(data.error_description)
+      if (data.error) throw new Error(data.error)
 
       if (data.access_token) setToken(data.access_token)
 
@@ -48,7 +48,8 @@ export default function SignIn() {
       //setUser()
       setStatus('done')
     } catch (error) { 
-      setError(error as string)
+      console.log(error)
+      //setError(error as string)
       setStatus('error')
     }
   }
