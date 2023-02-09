@@ -3,7 +3,6 @@ import { useState } from "react"
 import Input from "./input"
 import Title from "./title"
 import { useAuth } from "../providers"
-import { AuthError } from "../providers/auth"
 import Button from "./button"
 import { config, uri } from "../config"
 
@@ -41,7 +40,7 @@ export default function SignIn() {
 
       const data = await response.json()
 
-      if (data.error) throw data.error
+      if (data.error) throw new Error(data.error_description)
 
       if (data.access_token) setToken(data.access_token)
 
@@ -49,8 +48,7 @@ export default function SignIn() {
       //setUser()
       setStatus('done')
     } catch (error) { 
-      console.log(error)
-      setError(error as AuthError)
+      setError(error as string)
       setStatus('error')
     }
   }

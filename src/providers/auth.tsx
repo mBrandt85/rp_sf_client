@@ -8,12 +8,6 @@ export interface User {
   [key: string]: string
 }
 
-export interface AuthError {
-  error: string
-  error_description: string
-}
-
-
 export type Status = 'pending'
   | 'loading'
   | 'done'
@@ -23,7 +17,7 @@ interface State {
   status: Status
   token: string | null
   user: User | null
-  error: AuthError | null
+  error: string | null
 }
 
 type ActionType = 'SET_STATUS'
@@ -35,7 +29,6 @@ type ActionType = 'SET_STATUS'
 type Payload = Status
   | string
   | User
-  | AuthError
 
 interface Action {
   type: ActionType
@@ -46,7 +39,7 @@ interface Context extends State {
   setStatus: (payload: Status) => void
   setToken: (payload: string) => void
   setUser: (payload: User) => void
-  setError: (payload: AuthError) => void
+  setError: (payload: string) => void
   clearAuth: () => void
 }
 
@@ -73,7 +66,7 @@ const reducer = (state: State, action: Action): State => {
     case 'SET_ERROR':
       return {
         ...state,
-        error: action.payload as AuthError
+        error: action.payload as string
       }
 
     case 'CLEAR':
@@ -114,7 +107,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     payload
   })
 
-  const setError = (payload: AuthError) => dispatch({
+  const setError = (payload: string) => dispatch({
     type: 'SET_ERROR',
     payload
   })

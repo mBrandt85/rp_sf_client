@@ -7,8 +7,8 @@ export default function Error() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <Title>{error!.error}</Title>
-      <div style={{ marginBottom: 8 }}>{error!.error_description}</div>
+      <Title>ERROR!</Title>
+      <div style={{ marginBottom: 8 }}>{error}</div>
       <Button onClick={clearAuth}>Try again</Button>
     </div>
   )
