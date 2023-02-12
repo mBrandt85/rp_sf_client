@@ -4,8 +4,8 @@ import Input from "./input"
 import Title from "./title"
 import { useAuth } from "../providers"
 import Button from "./button"
-//import { config, sfToken, uri } from "../config"
- import {uri,config} from "../config"
+import { config, sfToken, uri } from "../config"
+// import {uri,config} from "../config"
 export default function SignIn() {
   const { setStatus, setToken, setError } = useAuth()
   const [username, setUsername] = useState('')
@@ -18,8 +18,8 @@ export default function SignIn() {
     const details = {
       ...config,
       username,
-     // password: password + sfToken
-      password
+      password: password + sfToken
+     // password
     }
 
     const formBody = []
@@ -31,14 +31,19 @@ export default function SignIn() {
     }
 
     try {
-      const response = await fetch(uri, {
+     /* const response = await fetch(uri, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
         body: formBody.join('&')
-      })
-
+      })*/
+      const response = await fetch(https://volvocars--cspdev.sandbox.my.site.com/services/oauth2/authorize?client_id=3MVG904d7VkkD2aNZc_uaegI_igPMOKIVx.gVBOBeCoUSNDz23QBExCUD2OxODw5tgXAFOHc4aQ==&redirect_uri=https://mbrandt85.github.io/rp_sf_client/oauth2/callback&response_type=code,
+       {method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        }
+       })
       const data = await response.json()
 
       if (data.error) throw new Error(data.error)
