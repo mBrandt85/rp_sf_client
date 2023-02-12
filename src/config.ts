@@ -1,3 +1,8 @@
+/*export const uri ='https://MyDomainName.my.salesforce.com/services/oauth2/authorize?'
+client_id=3MVG9IHf89I1t8hrvswazsWedXWY0i1qK20PSFaInvUgLFB6vrcb9bbWFTSIHpO8G2jxBLJA6uZGyPFC5Aejq&
+redirect_uri=https://www.mycustomerorderstatus.com/oauth2/callback&
+response_type=code*/
+
 export const uri = 'https://volvocars--cspdev.sandbox.my.site.com/services/oauth2/token'
 export const sfToken = '6Cel800D7a00000019bH8887a0000007PGBqDO04vy3HO2zLWgNRnnlQwGKSg9n3LsRfyBJykUnvkfjvIfeJTOlWjGojknMPHc2hiBceFZv'
 export const config = {
