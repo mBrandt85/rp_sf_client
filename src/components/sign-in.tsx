@@ -4,8 +4,8 @@ import Input from "./input"
 import Title from "./title"
 import { useAuth } from "../providers"
 import Button from "./button"
-import { config, sfToken, uri } from "../config"
-
+//import { config, sfToken, uri } from "../config"
+ import {uri,config} from "../config"
 export default function SignIn() {
   const { setStatus, setToken, setError } = useAuth()
   const [username, setUsername] = useState('')
@@ -18,7 +18,8 @@ export default function SignIn() {
     const details = {
       ...config,
       username,
-      password: password + sfToken
+     // password: password + sfToken
+      password
     }
 
     const formBody = []
